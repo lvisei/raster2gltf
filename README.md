@@ -1,2 +1,3 @@
 # raster2gltf
-rock stratum raster data to tin and gltf
+
+Rock stratum raster data to tin, mesh and gltf
