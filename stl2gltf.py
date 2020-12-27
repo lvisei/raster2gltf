@@ -4,6 +4,7 @@ import os
 # https://blog.wj2015.com/2020/03/08/step%e5%92%8ciges%e6%a8%a1%e5%9e%8b%e8%bd%ac%e6%8d%a2%e4%b8%ba%e9%80%82%e7%94%a8web%e7%9a%84glb%e6%a0%bc%e5%bc%8f/
 # https://zhuanlan.zhihu.com/p/65264050
 
+
 def stl_to_gltf(path_to_stl, out_path, is_binary):
     import struct
 
@@ -21,13 +22,29 @@ def stl_to_gltf(path_to_stl, out_path, is_binary):
         }
       ],
 
+      "materials" : [
+        {
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.800000011920929,
+                    1
+                ],
+                "metallicFactor" : 0.5,
+                "roughnessFactor" : 0.5
+            }
+        }
+      ],
+
       "meshes" : [
         {
           "primitives" : [ {
             "attributes" : {
               "POSITION" : 1
             },
-            "indices" : 0
+            "indices" : 0,
+            "material" : 0
           } ]
         }
       ],

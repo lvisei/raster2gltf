@@ -17,10 +17,7 @@ import pandas as pd
 # https://www.earthinversion.com/geophysics/plotting-the-geospatial-data-clipped-by-coastlines-in-python/
 
 
-def interpolation():
-
-    data_in = pd.read_csv("./data/24.csv", delimiter=',', usecols=[2, 3, 4])
-    data = data_in.to_numpy()
+def interpolation(data):
 
     # print("data:    ", data)
 
@@ -62,9 +59,9 @@ def interpolation():
         lons, lats, data,
         variogram_model="spherical",
         nlags=6,
-        verbose=True,
+        verbose=False,
         enable_plotting=False,
-        enable_statistics=True,
+        enable_statistics=False,
         # coordinates_type="geographic",
     )
 
@@ -82,11 +79,12 @@ def interpolation():
     # print("ss:    ", ss)
 
     # https://pykrige.readthedocs.io/en/latest/api.html#tools
-    kt.write_asc_grid(grid_lon, grid_lat, z, filename="./data/ok-output.asc")
+    kt.write_asc_grid(grid_lon, grid_lat, z,
+                      filename="./output-data/ok-output.asc")
 
-    # np.savetxt('./dataok-output.txt', z, fmt="%f", delimiter=",")
+    # np.savetxt('./output-data/dataok-output.txt', z, fmt="%f", delimiter=",")
 
-    # np.savez("./dataok-output.npz", grid_lon = grid_lon, grid_lat = grid_lat, z = z)
+    # np.savez("./output-data/dataok-output.npz", grid_lon = grid_lon, grid_lat = grid_lat, z = z)
 
     # https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html#scatter-plots
     #
@@ -98,4 +96,7 @@ def interpolation():
 
 
 if __name__ == '__main__':
-    interpolation()
+    data_in = pd.read_csv("./test-data/地表.csv",
+                          delimiter=',', usecols=[2, 3, 4])
+    data = data_in.to_numpy()
+    interpolation(data)

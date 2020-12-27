@@ -33,6 +33,6 @@ model = GLTFModel(
                         type=AccessorType.VEC3.value, min=mins, max=maxs)]
 )
 
-resource = FileResource('vertices.bin', data=vertex_bytearray)
+resource = FileResource('gltflib-vertices.bin', data=vertex_bytearray)
 gltf = GLTF(model=model, resources=[resource])
-gltf.export('./data/triangle.gltf')
+gltf.export('./output-data/gltflib-triangle.gltf')
