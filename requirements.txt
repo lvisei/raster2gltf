@@ -1,0 +1,8 @@
+gltflib==1.0.5
+pandas==1.1.5
+matplotlib==3.3.2
+pydelatin==0.2.2
+quantized_mesh_encoder==0.3.1
+PyKrige==1.5.1
+numpy==1.19.4
+meshio==4.3.8
